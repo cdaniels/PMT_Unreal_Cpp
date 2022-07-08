@@ -10,11 +10,11 @@
  * 
  */
 UCLASS()
-class PMT_API UTextFileManager : public UBlueprintFunctionLibrary
+class PMT_UNREAL_CPP_API UTextFileManager : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
-
+	
 	UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "Save"))
 	static bool SaveArrayText(FString SaveDirectory, FString FileName, TArray<FString> SaveText, bool AllowOverwriting);
-	
+
 };

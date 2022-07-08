@@ -3,18 +3,18 @@
 
 #include "TextFileManager.h"
 #include "Misc/FileHelper.h"
-#include "HAL/PlatformFilemanager.h"
+#include "HAL\PlatformFilemanager.h"
 
 
-bool UTextFileManager::SaveArrayText(FString SaveDirectory, FString FileName, TArray<FString> SaveText, bool AllowOverwriting = false)
+bool UTextFileManager::SaveArrayText(FString SaveDirectory, FString FileName, TArray<FString> SaveText, bool AllowOverWriting = false)
 {
     // Set the complete file path
     SaveDirectory += "\\";
     SaveDirectory += FileName;
 
-    if(!AllowOverwriting)
+    if(!AllowOverWriting)
     {
-        if(PlatformFileManager::Get().GetPlatformFile().FileExists(*SaveDirectory))
+        if(FPlatformFileManager::Get().GetPlatformFile().FileExists(*SaveDirectory))
         {
             return false;
         }
@@ -27,5 +27,5 @@ bool UTextFileManager::SaveArrayText(FString SaveDirectory, FString FileName, TA
         FinalString += LINE_TERMINATOR;
     }
 
-    return FFileHelper::SaveStringToFile(FileString, *SaveDirectory);
+    return FFileHelper::SaveStringToFile(FinalString, *SaveDirectory);
 }
